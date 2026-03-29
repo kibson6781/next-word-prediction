@@ -1,0 +1,149 @@
+.steps-card { animation-delay: 0.2s; }
+
+.steps-intro {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ── Step row ── */
+.step-row {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.step-row.open { border-color: var(--accent); }
+
+.step-summary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface2);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text);
+  text-align: left;
+  transition: background 0.15s;
+}
+.step-summary:hover { background: rgba(124,109,255,0.06); }
+
+.step-num {
+  font-size: 0.65rem;
+  color: var(--muted);
+  min-width: 2.2rem;
+  letter-spacing: 0.05em;
+}
+
+.step-chosen {
+  font-weight: 700;
+  color: var(--accent3);
+  min-width: 5rem;
+}
+
+.step-input-preview {
+  flex: 1;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.72rem;
+}
+
+.step-chevron {
+  font-size: 0.6rem;
+  color: var(--muted);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* ── Detail panel ── */
+.step-detail {
+  padding: 1rem 1.25rem 1.25rem;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.step-context {
+  margin-bottom: 0.85rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+}
+
+.ctx-label {
+  color: var(--muted);
+  margin-right: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.65rem;
+}
+
+.ctx-text { color: var(--text); opacity: 0.75; }
+
+/* ── Candidates ── */
+.candidates { display: flex; flex-direction: column; gap: 0.45rem; }
+
+.cand-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.cand-row:hover { background: rgba(255,255,255,0.03); }
+.cand-row.chosen { background: rgba(109,255,211,0.06); }
+
+.cand-rank { color: var(--muted); font-size: 0.65rem; min-width: 1.8rem; }
+.cand-word { min-width: 6rem; font-weight: 600; color: var(--text); }
+
+.cand-bar-wrap {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.cand-bar {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  animation: growBar 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.chosen .cand-bar { background: linear-gradient(90deg, var(--accent3), #4dffb8); }
+
+@keyframes growBar {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); }
+}
+
+.cand-prob { min-width: 3.5rem; text-align: right; color: var(--muted); font-size: 0.72rem; }
+
+.chosen-tag {
+  font-size: 0.62rem;
+  color: var(--accent3);
+  letter-spacing: 0.05em;
+  background: rgba(109,255,211,0.1);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+}
